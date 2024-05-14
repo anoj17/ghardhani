@@ -3,6 +3,7 @@ import Image from 'next/image';
 import ktm from './assets/kathmandu.jpeg'
 import Button from './components/Button';
 import Property from './components/property';
+import CardDirection from './components/Card';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <div className='px-20 gap-6 py-9 flex'>
           <Property />
           <Property />
+          <CardDirection />
         </div>
       </div>
     </main>
