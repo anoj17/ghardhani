@@ -15,9 +15,10 @@ export default function Home() {
           <Button text='Room' />
           <Button text='Flat' />
         </div>
-        <div className='px-20 gap-6 py-9 flex'>
-          <Property />
-          <Property />
+        <div className='px-20 gap-6 py-9 flex flex-col-6'>
+          <CardDirection />
+          <CardDirection />
+          {/* <Property /> */}
           <CardDirection />
         </div>
       </div>
