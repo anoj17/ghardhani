@@ -56,8 +56,9 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 w-full ">
-      <div className="bg-white p-8 rounded shadow-md w-full mx-10">
+    // <div className="min-h-screen flex items-center justify-center bg-gray-100 w-full ">
+    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input mt-28 bg-white dark:bg-black">
+      {/* <div className="bg-white p-8 rounded shadow-md w-full mx-10"> */}
         <h1 className="text-2xl font-bold mb-4">Login</h1>
         <form onSubmit={submitHandler}>
           <div className="mb-4">
@@ -117,7 +118,7 @@ const LoginPage = () => {
             <p>{error}</p>
           </div>
         )}
-      </div>
+      {/* </div> */}
     </div>
   );
 };

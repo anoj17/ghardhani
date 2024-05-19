@@ -6,6 +6,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
+
 import {
   FaBath,
   FaBed,

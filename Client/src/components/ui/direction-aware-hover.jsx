@@ -1,9 +1,7 @@
-import React, { useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { cn } from "./utils"; // Adjust the import path as needed
-import Card from "../utils/Card";
+import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
-export default const DirectionAwareHover = ({
+ const DirectionAwareHover = ({
   imageUrl,
   children,
   childrenClassName,
@@ -50,53 +48,40 @@ export default const DirectionAwareHover = ({
     <motion.div
       onMouseEnter={handleMouseEnter}
       ref={ref}
-      className={cn(
-        "md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative",
-        className
-      )}
+      className={`md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative ${className}`}
     >
-      <AnimatePresence mode="wait">
+      <motion.div
+        className="relative h-full w-full"
+        initial="initial"
+        whileHover={direction}
+        exit="exit"
+      >
+        <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
         <motion.div
-          className="relative h-full w-full"
-          initial="initial"
-          whileHover={direction}
-          exit="exit"
+          variants={variants}
+          className="h-full w-full relative bg-gray-50 dark:bg-black"
+          transition={{
+            duration: 0.2,
+            ease: "easeOut",
+          }}
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
-          <motion.div
-            variants={variants}
-            className="h-full w-full relative bg-gray-50 dark:bg-black"
-            transition={{
-              duration: 0.2,
-              ease: "easeOut",
-            }}
-          >
-            <img
-              alt="image"
-              className={cn(
-                "h-full w-full object-cover scale-[1.15]",
-                imageClassName
-              )}
-              width="1000"
-              height="1000"
-              src={imageUrl}
-            />
-          </motion.div>
-          <motion.div
-            variants={textVariants}
-            transition={{
-              duration: 0.5,
-              ease: "easeOut",
-            }}
-            className={cn(
-              "text-white absolute bottom-4 left-4 z-40",
-              childrenClassName
-            )}
-          >
-            {children}
-          </motion.div>
+          <img
+            alt="image"
+            className={`h-full w-full object-cover scale-[1.15] ${imageClassName}`}
+            src={imageUrl}
+          />
         </motion.div>
-      </AnimatePresence>
+        <motion.div
+          variants={textVariants}
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+          }}
+          className={`text-white absolute bottom-4 left-4 z-40 ${childrenClassName}`}
+        >
+          {children}
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 };
@@ -152,3 +137,5 @@ const textVariants = {
     opacity: 1,
   },
 };
+
+export default DirectionAwareHover;
