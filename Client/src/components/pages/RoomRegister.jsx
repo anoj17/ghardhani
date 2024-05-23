@@ -137,12 +137,12 @@ const RoomRegister = () => {
   return (
     <div className="">
       <div className="text-center ">
-        <h1 className="text-3xl font-bold">Register your room here</h1>
+        <h1 className="md:text-3xl text-xl font-bold">Register your room here</h1>
       </div>
       <form
         action=""
         onSubmit={submitHandler}
-        className="flex gap-2 my-10 flex-col w-full  mx-auto"
+        className="flex gap-2 md:my-10 my-6 flex-col w-full mx-auto"
       >
         <input
           id="name"

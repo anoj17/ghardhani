@@ -88,7 +88,7 @@ const RoomDetails = () => {
       });
   };
   return (
-    <main className="max-w-4xl mx-auto p-3 my-7 ">
+    <main className="max-w-4xl mx-auto p-3 md:my-7 ">
       {loading && <p className="text-center my-7 text-2xl">Loading...</p>}
       {error && (
         <p className="text-center my-7 text-2xl">Something went wrong!</p>
@@ -106,7 +106,7 @@ const RoomDetails = () => {
             ))}
           </Swiper>
           
-          <Link to={'/home'} className="fixed top-20 right-3 z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer">
+          <Link to={'/home'} className="fixed top-36 md:top-20 right-3 z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer">
             <FaShare
               className="text-slate-500"
               onClick={() => {

@@ -27,8 +27,8 @@ const OwnerDashboard = () => {
       {/* Sidebar and main content */}
       <div className="flex flex-1">
         {/* Sidebar */}
-        <div className="w-1/4 bg-gray-200 p-4">
-          <h2 className="text-2xl font-semibold mb-4 whitespace-nowrap">
+        <div className="w-1/4 bg-gray-200 p-2 lg:p-4">
+          <h2 className="md:text-2xl text-[1rem] font-semibold mb-4 whitespace-nowrap">
             Owner Panel
           </h2>
           <ul>
@@ -36,22 +36,22 @@ const OwnerDashboard = () => {
               className="flex items-center mb-2 cursor-pointer"
               onClick={() => handleItemClick("addRoom")}
             >
-              <FaPlus className="mr-2" />
-              <span>Add Room</span>
+              <FaPlus className="mr-2"/>
+              <span className="text-[1rem] md:text-[1.3rem]">Add Room</span>
             </li>
             <li
               className="flex items-center mb-2 cursor-pointer"
               onClick={() => handleItemClick("profile")}
             >
-              <FaUser className="mr-2" />
-              <span>Profile</span>
+              <FaUser className="mr-2"/>
+              <span className="text-[1rem] md:text-[1.3rem]">Profile</span>
             </li>
             <li
               className="flex items-center mb-2 cursor-pointer"
               onClick={() => handleItemClick("viewRoom")}
             >
-              <FaEye className="mr-2" />
-              <span>View Room</span>
+              <FaEye className="mr-2"/>
+              <span className="text-[1rem] md:text-[1.3rem]">View Room</span>
             </li>
             {/* Add more sidebar items as needed */}
           </ul>
