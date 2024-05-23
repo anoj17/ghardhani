@@ -144,7 +144,7 @@ const ProfilePage = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-between items-center my-7 w-full px-10">
+      <div className="flex flex-col justify-between items-center md:my-7 w-full px-2 md:px-10">
         <div className="flex flex-col items-center gap-2">
           <input
             type="file"
@@ -156,7 +156,7 @@ const ProfilePage = () => {
           <img
             src={formData.avatar || currentUser.avatar}
             alt=""
-            className="h-32 w-32 shadow-xl mt-10 mx-auto cursor-pointer object-cover rounded-xl"
+            className="md:h-32 h-20 w-20 md:w-32 shadow-xl mt-10 mx-auto cursor-pointer object-cover rounded-xl"
           />
           <span
             onClick={() => fileRef.current.click()}
@@ -165,62 +165,76 @@ const ProfilePage = () => {
             <FaEdit size={24} />
           </span>
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col w-full mx-20">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            className="border-solid border-2 outline-none rounded-md px-2 py-1 h-12 text-xl"
-            defaultValue={currentUser.username}
-            onChange={handleChange}
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            className="border-solid border-2 outline-none rounded-md px-2 py-1 h-12 text-xl"
-            defaultValue={currentUser.email}
-            onChange={handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            className="border-solid border-2 outline-none rounded-md px-2 py-1 h-12 text-xl"
-            onChange={handleChange}
-          />
-          <label htmlFor="address">Address</label>
-          <input
-            type="text"
-            id="address"
-            className="border-solid border-2 outline-none rounded-md px-2 py-1 h-12 text-xl"
-            defaultValue={currentUser.address}
-            onChange={handleChange}
-          />
-          <label htmlFor="phoneNumber">PhoneNumber</label>
-          <div className="flex items-center border-solid border-2 outline-none rounded-md px-2 py-1 h-12 text-xl">
-            <span className="text-sky-500 mr-1">+977</span>
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-2 w-full mx-20">
+          <div className="flex flex-col">
+            <label htmlFor="username">Username</label>
             <input
               type="text"
-              id="phoneNumber"
-              className="flex-grow outline-none"
-              defaultValue={currentUser.phoneNumber}
+              id="username"
+              className="border-solid border-2 outline-none rounded-md px-2 py-1 h-10 md:h-12 text-[1rem] md:text-xl"
+              defaultValue={currentUser.username}
               onChange={handleChange}
             />
           </div>
+          <div className="flex flex-col">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              className="border-solid border-2 outline-none rounded-md px-2 py-1 h-10 md:h-12 text-[1rem] md:text-xl"
+              defaultValue={currentUser.email}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              className="border-solid border-2 outline-none rounded-md px-2 py-1 h-10 md:h-12 text-[1rem] md:text-xl"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              className="border-solid border-2 outline-none rounded-md px-2 py-1 h-10 md:h-12 text-[1rem] md:text-xl"
+              defaultValue={currentUser.address}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="phoneNumber">PhoneNumber</label>
+            <div className="flex items-center border-solid border-2 outline-none rounded-md px-2 py-1 h-10 md:h-12 text-[1rem] md:text-xl">
+              <span className="text-sky-500 mr-1">+977</span>
+              <input
+                type="number"
+                id="phoneNumber"
+                className="flex-grow outline-none"
+                defaultValue={currentUser.phoneNumber}
+                onChange={handleChange}
+              />
+            </div>
+
+          </div>
           <button
             type="submit"
-            className="my-5 rounded-md disabled:opacity-80 px-4 py-2 flex items-center justify-center bg-sky-400 text-white"
+            className=" rounded-md disabled:opacity-80 px-4 py-2 flex items-center justify-center bg-sky-400 text-white"
           >
             <FaUserEdit className="inline-block mr-2 text-2xl " color="white" />
             Update
           </button>
         </form>
-        <div className="mx-auto">
+        <div className="mx-auto mt-2 w-full">
           <button
             type="button"
             onClick={handleDeleteUser}
-            className="pointer bg-red-600 p-1 rounded-xl text-white"
+            className="pointer bg-red-600 py-2 w-full rounded-md text-white"
           >
             <FaUserTimes className="inline-block mr-2" color="white" />
             Delete Account
