@@ -9,7 +9,7 @@ const ListingItem = ({ listing }) => {
   return (
     <DirectionAwareHover imageUrl={listing.imageUrls[0] || "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg"} className="bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[300px] h-[500px] sm:h-[400px] mb-5 mx-auto">
       <div className="flex flex-col">
-            <div className="p-4 flex justify-end">
+            <div className="p-4">
             <Link to={`/listing/${listing._id}`} className="block">
               {/* <img
                 src={
@@ -48,8 +48,8 @@ const ListingItem = ({ listing }) => {
               </div>
             </Link>
             </div>
-            <div className="p-4 flex justify-end">
-              <Link to={`/room/${listing._id}`} className="text-white">
+            <div className="p-4">
+              <Link to={`/room/${listing._id}`} className="text-white hover:underline">
                 More Details
               </Link>
             </div>

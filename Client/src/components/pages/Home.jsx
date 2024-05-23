@@ -44,9 +44,9 @@ export default function Home() {
           className="text-xs sm:text-lg text-blue-800 font-bold hover:underline"
         > <Button
         borderRadius="1.75rem"
-        className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
+        className="bg-sky-500 hover:bg-sky-600 dark:bg-slate-900 text-[1rem] text-white dark:text-white border-neutral-200 dark:border-slate-800"
       >
-          searh
+          search
       </Button>
         </Link>
        

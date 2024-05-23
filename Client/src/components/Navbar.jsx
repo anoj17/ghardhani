@@ -50,7 +50,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-gray-800 p-4 shadow-lg flex items-start justify-between flex-col lg:flex-row z-50">
+      <div className="bg-gray-800 p-4 shadow-lg flex items-center justify-between flex-col lg:flex-row z-50">
         <div className="flex justify-between items-center gap-4">
           <Link to={"/home"} className="text-lg font-bold text-white">
             HamroRoom

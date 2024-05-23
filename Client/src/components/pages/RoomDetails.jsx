@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
+import { ImCross } from "react-icons/im";
 
 import {
   FaBath,
@@ -104,7 +105,8 @@ const RoomDetails = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="fixed top-16 right-3 z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer">
+          
+          <Link to={'/home'} className="fixed top-20 right-3 z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer">
             <FaShare
               className="text-slate-500"
               onClick={() => {
@@ -115,7 +117,7 @@ const RoomDetails = () => {
                 }, 2000);
               }}
             />
-          </div>
+          </Link>
           {copied && (
             <p className="fixed top-50 right-10 z-10 rounded-md bg-slate-100 p-2">
               Link copied!
@@ -165,67 +167,74 @@ const RoomDetails = () => {
               <p className="text-green-500 font-semibold">Booked!</p>
             )}
           </div>
-          <Modal
-            isOpen={isModalOpen}
-            onRequestClose={() => setIsModalOpen(false)}
-            className="modal fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded shadow-lg z-50"
-            overlayClassName="overlay fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-40"
-          >
-            <h2 className="text-2xl font-semibold mb-4">Book Now</h2>
-            <div>
-              <h2>Book Room: {room.name}</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block font-semibold">
-                    Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    onChange={handleChange}
-                    required
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                  />
-                </div>
 
-                <div>
-                  <label htmlFor="address" className="block font-semibold">
-                    Address:
-                  </label>
-                  <input
-                    type="text"
-                    id="address"
-                    name="address"
-                    onChange={handleChange}
-                    required
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                  />
-                </div>
+            <Modal
+              isOpen={isModalOpen}
+              onRequestClose={() => setIsModalOpen(false)}
+              className="modal fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded drop-shadow-md z-50"
+              overlayClassName="overlay fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50 z-40"
+            >
+              <div className="flex justify-between">
+                <h2 className="text-2xl font-semibold mb-4">Book Now</h2>
+                <ImCross size={20} className="cursor-pointer text-gray-600"
+                  onClick={() => setIsModalOpen(false)}
+                />
+              </div>
+              <div className="md:w-[400px]">
+                <h2>Book Room: {room.name}</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="name" className="block font-semibold">
+                      Name:
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      onChange={handleChange}
+                      required
+                      className="w-full p-2 border border-gray-300 rounded-md"
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="phoneNumber" className="block font-semibold">
-                    Phone Number:
-                  </label>
-                  <input
-                    type="number"
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    onChange={handleChange}
-                    required
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="address" className="block font-semibold">
+                      Address:
+                    </label>
+                    <input
+                      type="text"
+                      id="address"
+                      name="address"
+                      onChange={handleChange}
+                      required
+                      className="w-full p-2 border border-gray-300 rounded-md"
+                    />
+                  </div>
 
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                >
-                  Book Now
-                </button>
-              </form>
-            </div>
-          </Modal>
+                  <div>
+                    <label htmlFor="phoneNumber" className="block font-semibold">
+                      Phone Number:
+                    </label>
+                    <input
+                      type="number"
+                      id="phoneNumber"
+                      name="phoneNumber"
+                      onChange={handleChange}
+                      required
+                      className="w-full p-2 border border-gray-300 rounded-md"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="bg-blue-500 w-full text-white px-4 py-2 rounded hover:bg-blue-600"
+                  >
+                    Book Now
+                  </button>
+                </form>
+              </div>
+            </Modal>
+
         </div>
       )}
     </main>

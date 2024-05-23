@@ -57,14 +57,14 @@ const RegisterPage = () => {
 
   return (
     // <div className="min-h-screen flex items-center justify-center bg-gray-100 w-50px ">
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input mt-28 bg-white dark:bg-black">
+    <div className="md:w-[700px] w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 md:shadow-input md:mt-10 mt-12 bg-white dark:bg-black">
       {/* <div className="bg-white p-8 rounded shadow-md w-full "> */}
         <h1 className="text-2xl font-bold mb-4">Register Here</h1>
         
         <form onSubmit={submitHandler} className="flex flex-col w-full">
-          <div className="flex items-center justify-between gap-5">
+          <div className="flex flex-col md:flex-row items-center justify-between md:gap-5">
 
-            <div className="w-1/2">
+            <div className="md:w-1/2 w-full">
               <label htmlFor="username" className="mb-2">
                 Username
               </label>
@@ -79,7 +79,7 @@ const RegisterPage = () => {
             </div>
 
 
-            <div className="w-1/2">
+            <div className="md:w-1/2 w-full">
               <label htmlFor="email" className="mb-2">
                 Email
               </label>
@@ -93,8 +93,8 @@ const RegisterPage = () => {
               />
             </div>
           </div>
-          <div className="flex items-center justify-between gap-5">
-            <div className="w-1/2">
+          <div className="flex flex-col md:flex-row items-center justify-between md:gap-5">
+            <div className="md:w-1/2 w-full">
               <label htmlFor="password" className="mb-2">
                 Password
               </label>
@@ -115,24 +115,25 @@ const RegisterPage = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2 w-full">
               <label htmlFor="phoneNumber" className="mb-2">
                 Phone Number
               </label>
-              <div className="flex items-center mb-4">
+              <div className="flex items-center border pl-2 border-gray-300 rounded-md mb-4">
                 <span className="mr-2 text-sm">{number}</span>
                 <input
                   type="tel"
                   id="phoneNumber"
+                  autoComplete="off"
                   required
                   onChange={handleChange}
-                  className="p-2 border border-gray-300 rounded-md flex-1 w-full"
+                  className="p-2 focus:outline-none bg-white w-[420px] md:w-[220px]"
                 />
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-between gap-5">
-            <div className="w-1/2">
+          <div className="flex flex-col md:flex-row items-center justify-between md:gap-5">
+            <div className="md:w-1/2 w-full">
               <label htmlFor="address" className="mb-2">
                 Address
               </label>
@@ -145,7 +146,7 @@ const RegisterPage = () => {
                 className="mb-4 p-2 border border-gray-300 rounded-md w-full"
               />
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2 w-full">
               <label htmlFor="priceRange" className="mb-2">
                 Price Range
               </label>
@@ -177,7 +178,7 @@ const RegisterPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-500 text-white py-2 px-4 rounded-md"
+            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md"
           >
             {loading ? "Loading..." : "Register"}
           </button>
@@ -186,7 +187,7 @@ const RegisterPage = () => {
         <div className="mt-4">
           <p className="text-gray-600">
             Already have an account?{" "}
-            <Link to="/" className="text-blue-500">
+            <Link to="/" className="text-blue-500 transition-all ease-in-out duration-150 font-semibold hover:text-blue-600">
               Login here
             </Link>
           </p>

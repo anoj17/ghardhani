@@ -100,7 +100,7 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-500 text-white py-2 px-4 rounded-md"
+            className="bg-blue-500 text-white hover:bg-blue-600 w-full py-2 px-4 rounded-md"
           >
             {loading ? "Loading..." : "Login"}
           </button>
@@ -108,7 +108,7 @@ const LoginPage = () => {
         <div className="mt-4">
           <p className="text-gray-600">
             Don't have an account?{" "}
-            <Link to="/register" className="text-blue-500">
+            <Link to="/register" className="text-blue-500 transition-all ease-in-out duration-150 font-semibold hover:text-blue-600">
               Register here
             </Link>
           </p>
