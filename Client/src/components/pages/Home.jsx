@@ -31,8 +31,8 @@ export default function Home() {
     <div className="bg-gray-200">
 
       {/* Top Section */}
-      <div className="flex flex-col gap-6 p-10 md:p-28 max-w-6xl mx-auto text-center  ">
-         <h1 className="text-3xl lg:text-6xl font-bold text-slate-700">
+      <div className="flex flex-col gap-6 p-6 md:p-20 max-w-6xl mx-auto text-center  ">
+         <h1 className="text-4xl md:text-6xl font-bold text-slate-700">
           GharDani
            <span className="text-sky-500"> Your Choice</span>
            
@@ -56,7 +56,7 @@ export default function Home() {
       <div className="mb-5">
         {offerListings.length > 0 && (
           <div>
-            <div className="my-3 px-10">
+            <div className="my-3 md:px-10 px-6 lg:px-16">
               <h2 className="text-3xl font-semibold text-black">
                 Our rooms
               </h2>
@@ -67,7 +67,7 @@ export default function Home() {
                 Search more here <FaAngleDoubleRight />
               </Link>
             </div>
-            <div className="flex  flex-wrap  gap-2   px-10">
+            <div className="flex flex-wrap gap-2 px-6 md:px-10 lg:px-16">
               {offerListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}

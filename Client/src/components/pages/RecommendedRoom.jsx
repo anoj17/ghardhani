@@ -29,13 +29,13 @@ const RecommendedRoom = () => {
     <div>
       <div className="mt-3">
         {offerListings.length > 0 && (
-          <div>
+          <div className=" px-6 md:px-16">
             <div className="my-3">
-              <h2 className="text-2xl font-semibold text-slate-600">
+              <h2 className="text-2xl font-semibold text-slate-800">
                 Recommended Rooms
               </h2>
             </div>
-            <div className="flex  flex-wrap  gap-2 mb-5">
+            <div className="flex flex-wrap gap-2 mb-5">
               {offerListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
