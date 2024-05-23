@@ -68,11 +68,10 @@ const Navbar = () => {
           >
             {currentUser ? (
               <>
-                {" "}
                 <input
                   type="text"
                   placeholder="Search Room here"
-                  className="bg-transparent focus:outline-none border-none w-[230px] md:w-[300px]"
+                  className={`w-[230px] bg-transparent focus:outline-none border-none md:w-[300px]`}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -82,7 +81,7 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <h1>Welcome to room rental ,Please Login to continue</h1>
+                <h1 className="md:flex hidden">Welcome to room rental ,Please Login to continue</h1>
               </>
             )}
           </form>
@@ -126,32 +125,34 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link
-                to={"/"}
-                className="flex items-center text-white mt-2 md:mt-0"
-              >
-                <FaSignInAlt className="w-6 h-6" />
-                <span className="ml-2">Login</span>
-              </Link>
-              <Link
-                to={"/register"}
-                className="flex items-center text-white mt-2 md:mt-0"
-              >
-                <FaUserPlus className="w-6 h-6" />
-                <span className="ml-2">Register</span>
-              </Link>
+              <div className="flex justify-center space-x-4 items-center">
+                <Link
+                  to={"/"}
+                  className="flex items-center text-white md:mt-0"
+                >
+                  <FaSignInAlt className="w-6 h-6" />
+                  <span className="ml-2">Login</span>
+                </Link>
+                <Link
+                  to={"/register"}
+                  className="flex items-center text-white md:mt-0"
+                >
+                  <FaUserPlus className="w-6 h-6" />
+                  <span className="ml-2">Register</span>
+                </Link>
+              </div>
             </>
           )}
         </div>
 
-        <div className="flex relative md:hidden items-center justify-center gap-4 mt-4 md:mt-0">
+        <div className="flex relative md:hidden items-center justify-center md:mt-0">
           {currentUser ? (
             <>
-              <div onClick={showDivBar} className="flex items-center text-white">
+              <div onClick={showDivBar} className="flex items-center justify-center text-white">
                 <img
                   src={currentUser.avatar}
                   alt=""
-                  className="w-8 h-8 rounded-full"
+                  className="w-9 h-9 rounded-full"
                 />
                 {/* <span className="ml-2">Profile</span> */}
               </div>
@@ -183,20 +184,22 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link
-                to={"/"}
-                className="flex items-center text-white mt-2 md:mt-0"
-              >
-                <FaSignInAlt className="w-6 h-6" />
-                <span className="ml-2">Login</span>
-              </Link>
-              <Link
-                to={"/register"}
-                className="flex items-center text-white mt-2 md:mt-0"
-              >
-                <FaUserPlus className="w-6 h-6" />
-                <span className="ml-2">Register</span>
-              </Link>
+              <div className="flex justify-center space-x-3 items-center">
+                <Link
+                  to={"/"}
+                  className="flex items-center text-white md:mt-0"
+                >
+                  <FaSignInAlt className="w-6 h-6" />
+                  <span className="ml-2">Login</span>
+                </Link>
+                <Link
+                  to={"/register"}
+                  className="flex items-center text-white md:mt-0"
+                >
+                  <FaUserPlus className="w-6 h-6" />
+                  <span className="ml-2">Register</span>
+                </Link>
+              </div>
             </>
           )}
           {

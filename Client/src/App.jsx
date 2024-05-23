@@ -33,6 +33,10 @@ const App = () => {
           path="/"
           element={currentUser && currentUser._id ? <Home /> : <LoginPage />}
         />
+        {/* <Route
+          path="/home"
+          element={<Home />}
+        /> */}
         <Route path="/register" element={<RegisterPage />} />
         <Route element={<PrivateRoute />}>
           <Route path="/home" element={<Home />} />
