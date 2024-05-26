@@ -44,7 +44,7 @@ const RegisterPage = () => {
       setLoading(false);
       setError(null);
       toast.success(data.message);
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -187,7 +187,7 @@ const RegisterPage = () => {
         <div className="mt-4">
           <p className="text-gray-600">
             Already have an account?{" "}
-            <Link to="/" className="text-blue-500 transition-all ease-in-out duration-150 font-semibold hover:text-blue-600">
+            <Link to="/login" className="text-blue-500 transition-all ease-in-out duration-150 font-semibold hover:text-blue-600">
               Login here
             </Link>
           </p>

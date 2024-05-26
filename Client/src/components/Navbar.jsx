@@ -17,7 +17,7 @@ const Navbar = () => {
   const [showDiv, setShowDiv] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  
   const handleLogout = async () => {
     dispatch(logoutStart());
     setShowDiv(!showDiv)
@@ -127,7 +127,7 @@ const Navbar = () => {
             <>
               <div className="flex justify-center space-x-4 items-center">
                 <Link
-                  to={"/"}
+                  to={"/login"}
                   className="flex items-center text-white md:mt-0"
                 >
                   <FaSignInAlt className="w-6 h-6" />

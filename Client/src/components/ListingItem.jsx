@@ -4,13 +4,17 @@ import { MdLocationOn } from "react-icons/md";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import DirectionAwareHover from '../components/ui/direction-aware-hover'
+import { useSelector } from "react-redux";
 
 const ListingItem = ({ listing }) => {
+const currentUser = useSelector((state) => state.user.currentUser);
+
+  // console.log(listing)
   return (
     <DirectionAwareHover imageUrl={listing.imageUrls[0] || "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg"} className="bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg relative w-full sm:w-[300px] h-[500px] sm:h-[400px] mb-5 mx-auto">
       <div className="absolute bottom-5">
         <div className="p-4">
-          <Link to={`/listing/${listing._id}`} className="block">
+          <Link to={`${currentUser && `/listing/${listing._id}`}`} className="block">
             {/* <img
                 src={
                   listing.imageUrls[0] ||
@@ -48,7 +52,7 @@ const ListingItem = ({ listing }) => {
             </div>
           </Link>
           <div className="p-4">
-            <Link to={`/room/${listing._id}`} className="text-white hover:underline">
+            <Link to={`${currentUser ? `/room/${listing._id}` : '/login'}`} className="text-white hover:underline">
               More Details
             </Link>
           </div>

@@ -15,11 +15,11 @@ import UpdateRoom from "./components/pages/UpdateRoom.jsx";
 import RoomDetails from "./components/pages/RoomDetails.jsx";
 import Search from "./components/pages/Search.jsx";
 import About from "./components/pages/About.jsx";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const App = () => {
   const location = useLocation();
-  const { currentUser } = useSelector((state) => state.user);
+  // const { currentUser } = useSelector((state) => state.user);
   const hideNavbar =
     location.pathname === "/admindashboard" ||
     location.pathname === "/ownerdashboard" ||
@@ -29,17 +29,18 @@ const App = () => {
       {!hideNavbar && <Navbar />}
       <ToastContainer />
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={currentUser && currentUser._id ? <Home /> : <LoginPage />}
-        />
-        {/* <Route
-          path="/home"
-          element={<Home />}
         /> */}
+        <Route
+          path="/"
+          element={<Home />}
+        />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/room/:id" element={<RoomDetails />} />
           <Route path="/about" element={<About />} />

@@ -9,10 +9,14 @@ import RecommendedRoom from "./RecommendedRoom";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FlipWords } from "../ui/flip-words";
 import { Button } from "../ui/moving-border";
+import { useSelector } from "react-redux";
 
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   SwiperCore.use([Navigation]);
+  // console.log(offerListings)
+
+const currentUser = useSelector((state) => state.user.currentUser);
 
   useEffect(() => {
     const fetchOfferListings = async () => {
@@ -40,7 +44,7 @@ export default function Home() {
           Don't forget to use Ghardhani
         </h1> 
          <Link
-          to="/search"
+          to={`${currentUser ? "/search" : '/register'}`}
           className="text-xs sm:text-lg text-blue-800 font-bold hover:underline"
         > <Button
         borderRadius="1.75rem"
@@ -68,12 +72,12 @@ export default function Home() {
               </Link>
             </div>
             <div className="flex flex-wrap gap-2 px-6 md:px-10 lg:px-16">
-              {offerListings.map((listing) => (
+              {offerListings && offerListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
             </div>
           </div>
-        )}
+        )} 
       </div>
       <RecommendedRoom />
       <Footer />

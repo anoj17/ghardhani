@@ -11,7 +11,7 @@ const RecommendedRoom = () => {
   SwiperCore.use([Navigation]);
 
   const currentUser = useSelector((state) => state.user.currentUser);
-  console.log(currentUser._id);
+  // console.log(currentUser);
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
