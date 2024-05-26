@@ -44,7 +44,7 @@ const currentUser = useSelector((state) => state.user.currentUser);
           Don't forget to use Ghardhani
         </h1> 
          <Link
-          to={`${currentUser ? "/search" : '/register'}`}
+          to={`${currentUser ? "/search" : '/login'}`}
           className="text-xs sm:text-lg text-blue-800 font-bold hover:underline"
         > <Button
         borderRadius="1.75rem"
