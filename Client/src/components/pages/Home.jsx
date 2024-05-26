@@ -38,7 +38,7 @@ const currentUser = useSelector((state) => state.user.currentUser);
       <div className="flex flex-col gap-6 p-6 md:p-20 max-w-6xl mx-auto text-center  ">
          <h1 className="text-4xl md:text-6xl font-bold text-slate-700">
           GharDani
-           <span className="text-sky-500"> Your Choice</span>
+           <span className="text-green-500"> Your Choice</span>
            
           <br />
           Don't forget to use Ghardhani
@@ -48,7 +48,7 @@ const currentUser = useSelector((state) => state.user.currentUser);
           className="text-xs sm:text-lg text-blue-800 font-bold hover:underline"
         > <Button
         borderRadius="1.75rem"
-        className="bg-sky-500 hover:bg-sky-600 dark:bg-slate-900 text-[1rem] text-white dark:text-white border-neutral-200 dark:border-slate-800"
+        className="bg-green-500 hover:bg-green-600 dark:bg-slate-900 text-[1rem] text-white dark:text-white border-neutral-200 dark:border-slate-800"
       >
           search
       </Button>
