@@ -125,7 +125,7 @@ const RoomRegister = () => {
       });
       const data = await res.json();
       setLoading(false);
-      navigate("/home");
+      navigate("/");
       if (data.success === false) {
         setError(data.message);
       }
@@ -279,7 +279,7 @@ const RoomRegister = () => {
         </div>
         <button
           type="submit"
-          className="bg-sky-400 rounded-md p-2 text-white hover:bg-sky-500 transition duration-300"
+          className="bg-green-400 rounded-md p-2 text-white hover:bg-green-500 transition duration-300"
         >
           {loading ? "Registering.." : "Register"}
         </button>

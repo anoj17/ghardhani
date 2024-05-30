@@ -59,7 +59,7 @@ const Navbar = () => {
     <>
       <div className="bg-gray-800 p-4 shadow-lg flex items-center pr-7 justify-between z-50">
         <div className="flex justify-between items-center gap-4">
-          <Link to={"/home"} className="text-lg font-bold text-white">
+          <Link to={"/"} className="text-lg font-bold text-white">
             HamroRoom
           </Link>
           <form

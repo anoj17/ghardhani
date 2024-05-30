@@ -57,11 +57,11 @@ const currentUser = useSelector((state) => state.user.currentUser);
       </div>
 
       {/* Listing Results Section */}
-      <div className="mb-5">
+      <div className="mb-5 md:px-20" >
         {offerListings.length > 0 && (
           <div>
-            <div className="my-3 md:px-10 px-6 lg:px-16">
-              <h2 className="text-3xl font-semibold text-black">
+            <div className="my-3 md:px-16 md:pl-28 px-6">
+              <h2 className="text-3xl font-semibold text-green-400">
                 Our rooms
               </h2>
               <Link
@@ -71,7 +71,7 @@ const currentUser = useSelector((state) => state.user.currentUser);
                 Search more here <FaAngleDoubleRight />
               </Link>
             </div>
-            <div className="flex flex-wrap gap-2 px-6 md:px-10 lg:px-16">
+            <div className="flex flex-wrap px-6 md:px-16">
               {offerListings && offerListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}

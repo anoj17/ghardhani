@@ -317,7 +317,7 @@ const UpdateRoom = () => {
             <button
               type="button"
               onClick={handleSubmitImage}
-              className="bg-sky-400 rounded-md p-2"
+              className="bg-green-400 rounded-md p-2"
             >
               <span className="ml-2 flex items-center gap-2">
                 {" "}
@@ -348,7 +348,7 @@ const UpdateRoom = () => {
           </div>
         </div>
         {/* Submit button */}
-        <button type="submit" className="bg-sky-400 rounded-md p-2">
+        <button type="submit" className="bg-green-400 rounded-md p-2">
           {loading ? "Updating" : "Update"}
         </button>
       </form>

@@ -178,7 +178,7 @@ const RegisterPage = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md"
+            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md"
           >
             {loading ? "Loading..." : "Register"}
           </button>
@@ -187,7 +187,7 @@ const RegisterPage = () => {
         <div className="mt-4">
           <p className="text-gray-600">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-500 transition-all ease-in-out duration-150 font-semibold hover:text-blue-600">
+            <Link to="/login" className="text-green-500 transition-all ease-in-out duration-150 font-semibold hover:text-green-600">
               Login here
             </Link>
           </p>

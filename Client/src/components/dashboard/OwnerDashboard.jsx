@@ -5,7 +5,7 @@ import ProfilePage from "../pages/ProfilePage";
 import ViewRoom from "./ViewRoom";
 import ViewUser from "./ViewUser";
 import { Link } from "react-router-dom";
-import ViewUserRoom from "./ViewUserRoom";
+import ViewUserRoom from "./ViewRoom";
 
 const OwnerDashboard = () => {
   const [selectedItem, setSelectedItem] = useState("profile");
@@ -18,7 +18,7 @@ const OwnerDashboard = () => {
     <div className="flex flex-col h-screen">
       {/* Top bar */}
       <div className="bg-gray-800 text-white p-4 flex justify-between">
-        <Link to={"/home"}>
+        <Link to={"/"}>
           <span>Room Rental System</span>
         </Link>
         <span>Welcome Owner</span>

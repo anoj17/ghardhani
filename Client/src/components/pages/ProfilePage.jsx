@@ -224,7 +224,7 @@ const ProfilePage = () => {
           </div>
           <button
             type="submit"
-            className=" rounded-md disabled:opacity-80 px-4 py-2 flex items-center justify-center bg-sky-400 text-white"
+            className=" rounded-md disabled:opacity-80 px-4 py-2 flex items-center justify-center bg-green-400 text-white"
           >
             <FaUserEdit className="inline-block mr-2 text-2xl " color="white" />
             Update
