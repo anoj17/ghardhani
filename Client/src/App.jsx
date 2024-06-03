@@ -15,12 +15,21 @@ import UpdateRoom from "./components/pages/UpdateRoom.jsx";
 import RoomDetails from "./components/pages/RoomDetails.jsx";
 import Search from "./components/pages/Search.jsx";
 import About from "./components/pages/About.jsx";
+import RoomParther from "./components/pages/RoomParther.jsx";
+import Chat from "./components/pages/Chat.jsx";
+import Recommanded from "./components/pages/Recommanded.jsx";
+import Notification from "./components/pages/Notification.jsx";
+import Modal from "./components/Modal.jsx";
 // import { useSelector } from "react-redux";
 
 const App = () => {
   const location = useLocation();
   // const { currentUser } = useSelector((state) => state.user);
   const hideNavbar =
+    location.pathname === "/findRoomPartner" ||
+    location.pathname === "/findRoomPartner/chat" ||
+    location.pathname === "/findRoomPartner/notification" ||
+    location.pathname === "/findRoomPartner/recommanded" ||
     location.pathname === "/admindashboard" ||
     location.pathname === "/ownerdashboard" ||
     location.pathname.startsWith("/updateroom");
@@ -40,6 +49,12 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route element={<PrivateRoute />}>
+        <Route path="/modal" element={<Modal />}/>
+          <Route path="/findRoomPartner" element={<RoomParther />}>
+            <Route path="chat" element={<Chat />}/>
+            <Route path="recommanded" element={<Recommanded />}/>
+            <Route path="notification" element={<Notification />}/>
+          </Route>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/room/:id" element={<RoomDetails />} />

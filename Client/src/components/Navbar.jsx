@@ -10,14 +10,17 @@ import {
   FaColumns,
 } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import PartnerModal from "./Modal";
 
 const Navbar = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState("");
   const [showDiv, setShowDiv] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+  // console.log(currentUser)
+
   const handleLogout = async () => {
     dispatch(logoutStart());
     setShowDiv(!showDiv)
@@ -45,6 +48,11 @@ const Navbar = () => {
 
   const showDivBar = () => {
     setShowDiv(!showDiv)
+  }
+
+  const openModel = () =>{
+    setIsModalOpen(true)
+    console.log("Opennnnnn")
   }
 
   useEffect(() => {
@@ -89,6 +97,12 @@ const Navbar = () => {
         <div className="md:flex hidden items-center justify-center gap-4 mt-4 md:mt-0">
           {currentUser ? (
             <>
+              {currentUser.role === "user" && (
+                <div onClick={openModel} className="px-5 cursor-pointer hover:bg-gray-300 bg-white text-black mr-5 py-2 rounded-md">
+                  Find Parther
+                </div>
+              )}
+
               <Link to={"/profile"} className="flex items-center text-white">
                 <img
                   src={currentUser.avatar}
@@ -97,6 +111,7 @@ const Navbar = () => {
                 />
                 <span className="ml-2">Profile</span>
               </Link>
+
               {currentUser.role === "admin" && (
                 <Link
                   to={"/admindashboard"}
@@ -143,6 +158,7 @@ const Navbar = () => {
               </div>
             </>
           )}
+          <PartnerModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}/>
         </div>
 
         <div className="flex relative md:hidden items-center justify-center md:mt-0">
