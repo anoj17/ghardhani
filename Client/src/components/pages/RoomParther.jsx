@@ -20,9 +20,9 @@ const Heading = ({ path, item }) => {
 const RoomParther = () => {
 
     return (
-        <div>
+        <div className='flex flex-col justify-center items-center py-2'>
             {/* top section */}
-            <div className='bg-black py-3 px-7 flex justify-between items-center'>
+            <div className='bg-black py-4 md:px-7 md:w-[60rem] rounded-xl flex justify-between items-center'>
                 <div className='flex space-x-3 items-center'>
                     <NavLink to='/' className='text-white font-semibold text-xl'>
                         HamroGhar

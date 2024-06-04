@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import { ToastContainer } from "react-toastify";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -20,11 +20,30 @@ import Chat from "./components/pages/Chat.jsx";
 import Recommanded from "./components/pages/Recommanded.jsx";
 import Notification from "./components/pages/Notification.jsx";
 import Modal from "./components/Modal.jsx";
-// import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { allPartner, userData } from "./slices/roomPartnerSlice.js";
 
 const App = () => {
   const location = useLocation();
-  // const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch()
+  const { singleUser } = useSelector((state) => state.room);
+  const { currentUser } = useSelector((state) => state.user);
+  useEffect(() => {
+    findPartner()
+  }, [currentUser])
+
+  const findPartner = async () => {
+    try {
+      const res = await fetch('/api/v1/findPartner')
+      const data = await res.json()
+      console.log(data)
+      dispatch(userData(data?.user))
+      dispatch(allPartner(data?.partners))
+    } catch (error) {
+      console.log((error))
+    }
+  }
+  // console.log(singleUser)
   const hideNavbar =
     location.pathname === "/findRoomPartner" ||
     location.pathname === "/findRoomPartner/chat" ||
@@ -49,11 +68,11 @@ const App = () => {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route element={<PrivateRoute />}>
-        <Route path="/modal" element={<Modal />}/>
-          <Route path="/findRoomPartner" element={<RoomParther />}>
-            <Route path="chat" element={<Chat />}/>
-            <Route path="recommanded" element={<Recommanded />}/>
-            <Route path="notification" element={<Notification />}/>
+          {/* <Route path="/modal" element={<Modal />}/> */}
+          <Route path="/findRoomPartner" element={singleUser ? <RoomParther /> : <Modal />}>
+            <Route path="chat" element={<Chat />} />
+            <Route path="recommanded" element={<Recommanded />} />
+            <Route path="notification" element={<Notification />} />
           </Route>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />

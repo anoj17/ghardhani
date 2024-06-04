@@ -1,8 +1,23 @@
 import RoomPartner from '../models/findPartnerModel.js'
 
+export const getPartner = async (req,res) =>{
+  try{
+    const user = await RoomPartner.findOne({userId: req.user.id})
+
+    if(!user){
+      return res.status(400).json({message: "no account found"})
+    }
+    const partners = await RoomPartner.find({userId: {$ne:req.user.id}})
+    res.json({user, partners})
+  }catch(error){
+    return res.status(400).json(error)
+  }
+}
+
 export const findPartner = async (req, res) => {
 
-  const { fname, lname, work, selection, roomPrice, phoneNumber } = req.body
+  const { fname, lname, work, book, selection, roomPrice, phoneNumber } = req.body
+  console.log(req.user) 
 
   try { 
 
@@ -12,18 +27,16 @@ export const findPartner = async (req, res) => {
       work,
       selection,
       roomPrice,
-      phoneNumber
+      book,
+      phoneNumber,
+      userId: req.user.id
     })
 
     await roomPartner.save()
-    console.log(roomPartner)
 
-    // const existUser = new RoomPartner.find({phoneNumber})
-    // const allPartner = existUser.filter((item)=>{
-    //   return item.phoneNumber !== phoneNumber
-    // })
-    return res.status(201).json({ message: "successfull", alert: true, roomPartner })
+    return res.status(201).json({ message: "successfull", alert: true })
   } catch (error) {
+    console.log(error)
     return res.status(400).json({ message: "failed", alert: false })
   }
 }

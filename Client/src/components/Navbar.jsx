@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import PartnerModal from "./Modal";
+import { userData } from "../slices/roomPartnerSlice";
 
 const Navbar = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -19,6 +20,9 @@ const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const {singleUser} = useSelector((state) => state.room);
+
   // console.log(currentUser)
 
   const handleLogout = async () => {
@@ -51,8 +55,10 @@ const Navbar = () => {
   }
 
   const openModel = () =>{
+    if(singleUser){
+      navigate('/findRoomPartner')
+    }
     setIsModalOpen(true)
-    console.log("Opennnnnn")
   }
 
   useEffect(() => {

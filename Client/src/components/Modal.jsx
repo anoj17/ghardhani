@@ -1,12 +1,17 @@
 import Modal from "react-modal";
 import { ImCross } from "react-icons/im";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { allPartner, userData } from "../slices/roomPartnerSlice";
 
 const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
 
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({});
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   // let number = "🇳🇵+977";
 
   const handleChange = (e) => {
@@ -29,7 +34,13 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
         body: JSON.stringify(formData)
       });
       const data = await res.json()
-      console.log(data)
+      // console.log(data)
+      if(data?.alert === true){
+        // console.log(data)
+        navigate('/findRoomPartner')
+        dispatch(allPartner(data?.allPartner))
+        dispatch(userData(data?.userData))
+      }
     } catch (error) {
       console.log(error)
     }
@@ -174,7 +185,6 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
                     id="roomLocation"
                     name="roomLocation"
                     value={formData.roomLocation}
-                    required
                     onChange={handleChange}
                     autocomplete='off'
                     placeholder="Enter room location"
@@ -190,7 +200,6 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
                     id="roomPrice"
                     name="roomPrice"
                     value={formData.roomPrice}
-                    required
                     onChange={handleChange}
                     autocomplete='off'
                     placeholder="Enter your price Range"
