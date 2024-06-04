@@ -8,6 +8,7 @@ import { connectDB } from "./database/db.js";
 import userRoute from "./routes/userRoutes.js";
 import roomRoutes from "./routes/roomRoute.js";
 import bookingRoute from "./routes/bookingRoute.js";
+import findPartnerRoute from './routes/findPartnerRoute.js'
 
 //app created for server
 const app = express();
@@ -29,6 +30,7 @@ app.listen(port, (req, res) => {
 app.use("/api/v1", userRoute);
 app.use("/api/v1", roomRoutes);
 app.use("/api/v1", bookingRoute);
+app.use("/api/v1", findPartnerRoute)
 
 //errormiddleware
 app.use((err, req, res, next) => {
