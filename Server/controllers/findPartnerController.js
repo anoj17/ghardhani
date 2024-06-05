@@ -16,7 +16,7 @@ export const getPartner = async (req,res) =>{
 
 export const findPartner = async (req, res) => {
 
-  const { fname, lname, work, book, selection, roomPrice, phoneNumber } = req.body
+  const { fname, lname, work, age, book, selection, roomPrice, phoneNumber } = req.body
   console.log(req.user) 
 
   try { 
@@ -24,6 +24,7 @@ export const findPartner = async (req, res) => {
     const roomPartner = new RoomPartner({
       fname,
       lname,
+      age,
       work,
       selection,
       roomPrice,

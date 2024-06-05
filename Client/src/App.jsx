@@ -36,7 +36,9 @@ const App = () => {
     try {
       const res = await fetch('/api/v1/findPartner')
       const data = await res.json()
+
       console.log(data)
+
       dispatch(userData(data?.user))
       dispatch(allPartner(data?.partners))
     } catch (error) {

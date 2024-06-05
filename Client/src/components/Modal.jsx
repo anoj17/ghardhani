@@ -2,8 +2,6 @@ import Modal from "react-modal";
 import { ImCross } from "react-icons/im";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { allPartner, userData } from "../slices/roomPartnerSlice";
 
 const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
 
@@ -11,7 +9,6 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
   const [formData, setFormData] = useState({});
 
   const navigate = useNavigate()
-  const dispatch = useDispatch()
   // let number = "🇳🇵+977";
 
   const handleChange = (e) => {
@@ -35,11 +32,8 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
       });
       const data = await res.json()
       // console.log(data)
-      if(data?.alert === true){
-        // console.log(data)
+      if (data?.alert === true) {
         navigate('/findRoomPartner')
-        dispatch(allPartner(data?.allPartner))
-        dispatch(userData(data?.userData))
       }
     } catch (error) {
       console.log(error)
@@ -72,7 +66,6 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
                 type="text"
                 id="fname"
                 name="fname"
-                value={formData.fname}
                 onChange={handleChange}
                 autocomplete='off'
                 required
@@ -90,7 +83,6 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
                 type="text"
                 id="lname"
                 name="lname"
-                value={formData.lname}
                 required
                 onChange={handleChange}
                 autocomplete='off'
@@ -110,7 +102,6 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
                   type="text"
                   id="work"
                   name="work"
-                  value={formData.work}
                   autoComplete="off"
                   required
                   onChange={handleChange}
@@ -129,7 +120,24 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
                   type="number"
                   id="phoneNumber"
                   name="phoneNumber"
-                  value={formData.phoneNumber}
+                  autoComplete="off"
+                  required
+                  onChange={handleChange}
+                  autocomplete='off'
+                  className="p-2 focus:outline-none bg-white w-[420px] md:w-[220px]"
+                />
+              </div>
+            </div>
+
+            <div className="w-full">
+              <label htmlFor="phoneNumber" className="mb-2">
+                Age
+              </label>
+              <div className="flex items-center border pl-2 border-gray-300 rounded-md mb-4">
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
                   autoComplete="off"
                   required
                   onChange={handleChange}
@@ -173,8 +181,7 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
               </div>
             </div>
 
-            {
-              formData.book === 'yes' &&
+            {formData.book === 'yes' &&
               <div className="mt-3 transition-all duration-500 ease-in-out">
                 <div className=" w-full">
                   <label htmlFor="address" className="mb-2">
@@ -184,7 +191,6 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
                     type="text"
                     id="roomLocation"
                     name="roomLocation"
-                    value={formData.roomLocation}
                     onChange={handleChange}
                     autocomplete='off'
                     placeholder="Enter room location"
@@ -199,7 +205,6 @@ const PartnerModal = ({ setIsModalOpen, isModalOpen }) => {
                     type="number"
                     id="roomPrice"
                     name="roomPrice"
-                    value={formData.roomPrice}
                     onChange={handleChange}
                     autocomplete='off'
                     placeholder="Enter your price Range"

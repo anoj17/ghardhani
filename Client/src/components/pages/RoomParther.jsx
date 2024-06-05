@@ -1,9 +1,7 @@
 import React from 'react'
-import { NavLink, Outlet, useLocation } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 
 const Heading = ({ path, item }) => {
-    const { pathname } = useLocation()
-    // {`${pathname === `findRoomPartner/${path}` ? 'underline' : ''} cursor-pointer`}
 
     return (
         <NavLink
@@ -22,7 +20,7 @@ const RoomParther = () => {
     return (
         <div className='flex flex-col justify-center items-center py-2'>
             {/* top section */}
-            <div className='bg-black py-4 md:px-7 md:w-[60rem] rounded-xl flex justify-between items-center'>
+            <div className='bg-black py-4 md:px-7 md:w-[63rem] rounded-xl flex justify-between items-center'>
                 <div className='flex space-x-3 items-center'>
                     <NavLink to='/' className='text-white font-semibold text-xl'>
                         HamroGhar

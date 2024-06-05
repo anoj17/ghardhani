@@ -2,8 +2,8 @@ import mongoose, { Types } from "mongoose";
 
 const findPartnerSchema = new mongoose.Schema(
   {
-    fname: { type: String, required: true },
-    lname: { type: String, required: true },
+    fname: { type: String },
+    lname: { type: String },
 
     phoneNumber: {
       type: String,
@@ -19,6 +19,10 @@ const findPartnerSchema = new mongoose.Schema(
     },
     book: {
       type: String,
+    },
+    age: {
+      type: Number,
+      required: true
     },
     work: {
       type: String,
