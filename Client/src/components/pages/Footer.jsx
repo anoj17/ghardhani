@@ -10,7 +10,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
             <p>Lalitpur Muncipality-13 ,imadol</p>
             <p>Phone:+977 9866520000</p>
-            <p>Email:roomrental7@gmail.com</p>
+            <p>Email:gharDhani@gmail.com</p>
           </div>
           <div className="mb-4 md:w-1/2 md:pl-8">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>

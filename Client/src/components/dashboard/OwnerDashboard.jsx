@@ -19,9 +19,10 @@ const OwnerDashboard = () => {
       {/* Top bar */}
       <div className="bg-gray-800 text-white p-4 flex justify-between">
         <Link to={"/"}>
-          <span>Room Rental System</span>
+        <img src="../src/assets/GharDhaniLogo.png" alt="GharDhani Logo" className="h-20 w-20" />
+
         </Link>
-        <span>Welcome Owner</span>
+        <span>Welcome GharDhani</span>
       </div>
 
       {/* Sidebar and main content */}

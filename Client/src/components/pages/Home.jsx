@@ -37,11 +37,11 @@ const currentUser = useSelector((state) => state.user.currentUser);
       {/* Top Section */}
       <div className="flex flex-col gap-6 p-6 md:p-20 max-w-6xl mx-auto text-center  ">
          <h1 className="text-4xl md:text-6xl font-bold text-slate-700">
-          GharDani
-           <span className="text-green-500"> Your Choice</span>
+          Ghar
+           <span className="text-green-500"> Dhani</span>
            
           <br />
-          Don't forget to use Ghardhani
+          Use it to find your room efficiently.
         </h1> 
          <Link
           to={`${currentUser ? "/search" : '/login'}`}

@@ -23,7 +23,7 @@ const RoomParther = () => {
             <div className='bg-black py-4 md:px-7 md:w-[63rem] rounded-xl flex justify-between items-center'>
                 <div className='flex space-x-3 items-center'>
                     <NavLink to='/' className='text-white font-semibold text-xl'>
-                        HamroGhar
+                    <img src="../src/assets/GharDhaniLogo.png" alt="GharDhani Logo" className="h-10 w-13" />
                     </NavLink>
                     <div className='py-1 px-4 bg-white rounded-md'>
                         Find your Partner

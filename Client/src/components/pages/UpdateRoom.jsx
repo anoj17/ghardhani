@@ -144,12 +144,12 @@ const UpdateRoom = () => {
       <div className="text-center  w-full">
         <div className="bg-gray-800 text-white p-4 flex justify-between">
           <Link to={"/home"}>
-            <span>Room Rental System</span>
+          <img src="../src/assets/GharDhaniLogo.png" alt="GharDhani Logo" className="h-20 w-20" />
           </Link>
 
-          <span>Welcome Admin</span>
+          <span>Welcome GharDhani</span>
         </div>
-        <h1 className="text-3xl font-bold mt-5">Update your room here</h1>
+        <h1 className="text-3xl font-bold mt-5">Update Room</h1>
       </div>
       <form
         action=""

@@ -74,7 +74,7 @@ const Navbar = () => {
       <div className="bg-gray-800 p-4 shadow-lg flex items-center pr-7 justify-between z-50">
         <div className="flex justify-between items-center gap-4">
           <Link to={"/"} className="text-lg font-bold text-white">
-            HamroRoom
+          <img src="../src/assets/GharDhaniLogo.png" alt="GharDhani Logo" className="h-20 w-20" />
           </Link>
           <form
             onSubmit={handleSearch}
@@ -95,7 +95,7 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <h1 className="md:flex hidden">Welcome to room rental ,Please Login to continue</h1>
+                <h1 className="md:flex hidden">Please Login to continue</h1>
               </>
             )}
           </form>
